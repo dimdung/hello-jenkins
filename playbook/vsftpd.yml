@@ -8,10 +8,10 @@
     yum: name=vsftpd state=present
 
     # Enable verbose logging
-  - name: Configure VSFTPd
-    template: src=vsftpd.j2 dest=/etc/vsftpd/vsftpd.conf
-    notify:
-    - restart vsftpd
+  #- name: Configure VSFTPd
+   # template: src=vsftpd.j2 dest=/etc/vsftpd/vsftpd.conf
+    #notify:
+    #- restart vsftpd
 
   - name: Enable the service
     service: name=vsftpd state=started
