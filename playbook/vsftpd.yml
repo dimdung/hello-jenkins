@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: False 
+
+  tasks:
+  
+  - name: Install VSFTPd
+    yum: name=vsftpd
+
+    # Enable verbose logging
+  - name: Configure VSFTPd
+    template: src=/templates/vsftpd.j2 dest=/etc/vsftpd/vsftpd.conf
+    notify:
+    - restart vsftpd
+
+  - name: Enable the service
+    service: name=vsftpd state=started
+
+  handlers:
+    - name: restart vsftpd
+      service: name=vsftpd state=restarted 
