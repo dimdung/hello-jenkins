@@ -6,7 +6,7 @@
   tasks:
   
   - name: Install VSFTPd
-    yum: name=vsftpd
+    yum: name=vsftpd state=present
 
     # Enable verbose logging
   - name: Configure VSFTPd
