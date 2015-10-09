@@ -15,7 +15,6 @@
 
   - name: Enable the service
     service: name=vsftpd state=started
-
-  handlers:
-    - name: restart vsftpd
-      service: name=vsftpd state=restarted 
+    
+  - name: Enalbe on boot
+    service: name=vsftpd enabled=yes
