@@ -12,3 +12,6 @@
     
   - name: Enalbe on boot
     service: name=httpd enabled=yes
+  
+  - name: Service restart again 
+    command: service httpd restart 
